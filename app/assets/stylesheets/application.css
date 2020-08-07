@@ -52,7 +52,6 @@ a {
 a:hover {
   text-decoration: none;
   color: rgb(25, 7, 66);
-    
   background-color: rgb(247, 242, 242);
 }
 
@@ -85,15 +84,15 @@ a:hover {
   background-color: rgb(141, 141, 175);
 }
 
+li .btn {
+  font-size: 22px;
+}
+
 .btn.title:hover,
 .btn:hover {
   text-decoration: none;
   color: #fff;
   background-color: rgb(145, 145, 170);
-}
-
-li .btn {
-  font-size: 22px;
 }
 
 .post {

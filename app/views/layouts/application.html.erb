@@ -3,19 +3,34 @@
   <head>
     <title>MembersOnly</title>
     <%= csrf_meta_tags %>
-
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity: "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh", crossorigin: "anonymous" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn" %>
-  <% else %>
-    <p class="">
-    <%= link_to "Sign In", new_user_session_path, class: "btn" %>
-    </p>
-  <% end %>
-    <%= yield %>
+  <body container-lg container-fluid>
+
+<header class="row page-header d-flex navbar justify-content-between fixed-top">
+  <div class="logo-left logo pl-4"><%= link_to 'Members|ONLY|', root_path %></div>
+  
+        <div class="right-section"> 
+            <ul class="d-flex align-items-center">
+            <% if user_signed_in? %>      
+  
+  <li>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn" %>
+  </li>  
+          <% else %>
+          <li> <%= link_to "Register", new_user_registration_path, class: "btn"%></li>
+              <li><%= link_to "Sign In", new_user_session_path, class: "btn" %></li>
+          <% end %>
+            </ul>
+        </div>
+    </header>
+     <main>
+      <div class="row mt-5">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

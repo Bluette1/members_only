@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create]
+  before_action :signed_in_user, only: %i[new create]
 
   # GET /posts
   # GET /posts.json
@@ -9,8 +9,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  def show
-  end
+  def show; end
 
   # GET /posts/new
   def new
@@ -18,15 +17,14 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
@@ -63,15 +61,14 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def signed_in_user
-      unless signed_in?
-        redirect_to new_user_session_path
-      end
-    end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:title, :body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def signed_in_user
+    redirect_to new_user_session_path unless signed_in?
+  end
+
+  # Only allow a list of trusted parameters through.
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
 end

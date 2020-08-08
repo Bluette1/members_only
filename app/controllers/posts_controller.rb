@@ -63,9 +63,12 @@ class PostsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def signed_in_user
-    unless signed_in?
-      flash.notice = 'User needs to be logged in.'
-      redirect_to new_user_session_path
+    failed_action unless signed_in?
+  end
+
+  def failed_action
+    respond_to do |format|
+      format.html { redirect_to new_user_session_path, notice: 'User needs to be logged in.' }
     end
   end
 

@@ -67,8 +67,10 @@ class PostsController < ApplicationController
   end
 
   def failed_action
+    message = 'User needs to be logged in.'
     respond_to do |format|
-      format.html { redirect_to new_user_session_path, notice: 'User needs to be logged in.' }
+      format.html { redirect_to new_user_session_path, notice: message }
+      format.json { render json: { message: message }, status: :unprocessable_entity }
     end
   end
 

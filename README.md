@@ -58,7 +58,8 @@ Make sure the server is running
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Bluette1/minderly-bot/issues).
+Feel free to check the [issues \
+age](https://github.com/Bluette1/members_only/issues).
 
 ## Show your support
 

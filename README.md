@@ -19,7 +19,7 @@ Non-members can view the posts but can't view the authors.
 
 ## Live Demo
 
-[Live Demo]()
+[Live Demo](https://members-only-110.herokuapp.com/)
 
 ### Run instructions 
 -  You can clone the GitHub repo and type the following commands in the terminal to run the bot locally 

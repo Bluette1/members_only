@@ -10,4 +10,8 @@ module PostsHelper
   def title(post)
     ' -> ' << post.title
   end
+
+  def body(post)
+    post.body
+  end
 end

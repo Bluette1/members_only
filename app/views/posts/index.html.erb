@@ -1,0 +1,31 @@
+<article class="col-lg-2">
+</article>
+<div class="d-flex col-lg-8 align-items-center justify-content-center">
+  <article class="p-5 m-5">
+    <h1 class="title">READ OUR TALES</h1>
+    <% @posts.each do |post| %>
+      <hr>
+      <p class="post" >
+        <%= title post %>
+      </p>
+      <% if member? %>
+        <%= show_user post %> <br/>
+      <% end %>
+    <% end %>
+    <div class="pt-5 mt-3">
+      <% if member? %>
+        <p> <%= link_to 'New Post', new_post_path, class: "title btn text-uppercase" %></p>
+        <br/>
+        <br/>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn" %>
+      <% else %>
+        <p ><%= link_to "Register", new_user_registration_path, class: "btn" %></p>
+        <p >
+          <%= link_to "Sign In", new_user_session_path, class: "btn" %>
+        </p>
+      <% end %>
+    </div>
+  </article>
+</div>
+<article class="col-lg-2 col-sm-5 col-6 m-auto pb-5">
+</article>
